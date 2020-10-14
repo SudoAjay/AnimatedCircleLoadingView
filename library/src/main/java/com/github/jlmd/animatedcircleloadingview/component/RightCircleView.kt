@@ -17,6 +17,7 @@ class RightCircleView(context: Context?, parentWidth: Int, mainColor: Int, secon
     private var rightMargin = 0
     private var bottomMargin = 0
     private var paint: Paint? = null
+
     private fun init() {
         rightMargin = 150 * parentWidth / 700
         bottomMargin = 50 * parentWidth / 700
@@ -51,8 +52,8 @@ class RightCircleView(context: Context?, parentWidth: Int, mainColor: Int, secon
         translateAnimation.duration = 1000
 
         val alphaAnimation = AlphaAnimation(1f, 0f)
-        alphaAnimation.startOffset = 1300
-        alphaAnimation.duration = 200
+        alphaAnimation.startOffset = (1300).toLong()
+        alphaAnimation.duration = (200).toLong()
 
         val animationSet = AnimationSet(true)
         animationSet.addAnimation(translateAnimation)

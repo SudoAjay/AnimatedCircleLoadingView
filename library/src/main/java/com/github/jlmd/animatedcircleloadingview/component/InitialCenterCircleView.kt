@@ -22,7 +22,6 @@ class InitialCenterCircleView(
     private var minRadius = 0f
     private var currentCircleWidth = 0f
     private var currentCircleHeight = 0f
-    private val addedTime = 1500
     private fun init() {
         initOval()
         initPaint()
@@ -57,7 +56,7 @@ class InitialCenterCircleView(
     fun startTranslateTopAnimation() {
         val translationYTo = -(255 * parentWidth) / 700.toFloat()
         val translationY = ObjectAnimator.ofFloat(this, "translationY", 0f, translationYTo)
-        translationY.duration = 1100 + addedTime.toLong()
+        translationY.duration = 1100
         translationY.addListener(object : AnimatorListener {
             override fun onAnimationStart(animation: Animator) {
                 // Empty
@@ -80,7 +79,7 @@ class InitialCenterCircleView(
 
     fun startScaleAnimation() {
         val valueAnimator = ValueAnimator.ofFloat(minRadius, circleRadius)
-        valueAnimator.duration = 1400 + addedTime.toLong()
+        valueAnimator.duration = 1400
         valueAnimator.addUpdateListener { animation ->
             currentCircleWidth = animation.animatedValue as Float
             currentCircleHeight = animation.animatedValue as Float
@@ -94,15 +93,15 @@ class InitialCenterCircleView(
         val translationYTo = 360 * parentWidth / 700.toFloat()
         val translationY =
             ObjectAnimator.ofFloat(this, "translationY", translationYFrom, translationYTo)
-        translationY.duration = 650 + (addedTime / 2).toLong()
+        translationY.duration = 650
         translationY.start()
     }
 
     fun startScaleDisappear() {
         val maxScaleSize = 250 * parentWidth / 700.toFloat()
         val valueScaleWidthAnimator = ValueAnimator.ofFloat(circleRadius, maxScaleSize)
-        valueScaleWidthAnimator.duration = 260 + (addedTime / 2).toLong()
-        valueScaleWidthAnimator.startDelay = 430 + (addedTime / 2).toLong()
+        valueScaleWidthAnimator.duration = 260
+        valueScaleWidthAnimator.startDelay = 430
         valueScaleWidthAnimator.addUpdateListener { animation ->
             currentCircleWidth = animation.animatedValue as Float
             invalidate()
@@ -128,8 +127,8 @@ class InitialCenterCircleView(
         })
         valueScaleWidthAnimator.start()
         val valueScaleHeightAnimator = ValueAnimator.ofFloat(circleRadius, circleRadius / 2)
-        valueScaleHeightAnimator.duration = 260 + (addedTime / 2).toLong()
-        valueScaleHeightAnimator.startDelay = 430 + (addedTime / 2).toLong()
+        valueScaleHeightAnimator.duration = 260
+        valueScaleHeightAnimator.startDelay = 430
         valueScaleHeightAnimator.addUpdateListener { animation ->
             currentCircleHeight = animation.animatedValue as Float
             invalidate()
@@ -140,7 +139,7 @@ class InitialCenterCircleView(
     fun startTranslateCenterAnimation() {
         val translationYFrom = -(260 * parentWidth) / 700.toFloat()
         val translationY = ObjectAnimator.ofFloat(this, "translationY", translationYFrom, 0f)
-        translationY.duration = 650 + addedTime.toLong()
+        translationY.duration = 650
         translationY.addListener(object : AnimatorListener {
             override fun onAnimationStart(animation: Animator) {
                 // Empty

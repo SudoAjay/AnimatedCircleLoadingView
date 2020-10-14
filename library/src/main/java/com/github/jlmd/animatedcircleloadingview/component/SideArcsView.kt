@@ -20,7 +20,7 @@ class SideArcsView(context: Context?, parentWidth: Int, mainColor: Int, secondar
     private var paint: Paint? = null
     private var oval: RectF? = null
     private var arcAngle = 0
-    private val addedTime = 1500
+    private val addedTime = 0
     private fun init() {
         initPaint()
         arcAngle = MAX_RESIZE_ANGLE

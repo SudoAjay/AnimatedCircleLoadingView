@@ -139,7 +139,7 @@ class ViewAnimator : StateListener {
     }
 
     private val isAnimationFinished: Boolean
-        private get() = finishedState != null
+        get() = finishedState != null
 
     private fun onFinished(state: AnimationState) {
         topCircleBorderView!!.hideView()
